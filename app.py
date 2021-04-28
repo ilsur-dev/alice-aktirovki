@@ -4,7 +4,7 @@ from database import Database
 from handler import AliceHandler
 
 IP = '127.0.0.1'
-PORT = 80
+PORT = 19823
 
 FORMAT = '[%(asctime)-15s] [%(levelname)s] - %(message)s'
 logging.basicConfig(format=FORMAT, level=logging.DEBUG)

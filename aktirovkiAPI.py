@@ -1,8 +1,14 @@
 import requests
 from datetime import datetime
+import logging
 import locale
 
-locale.setlocale(locale.LC_TIME, "ru_RU")
+
+try:
+    locale.setlocale(locale.LC_TIME, "ru_RU")
+except Exception:
+    logging.warning('Используется другая кодировка для даты')
+    locale.setlocale(locale.LC_TIME, "ru_RU.utf8")
 
 
 def get_prognoz_now(city_id):
