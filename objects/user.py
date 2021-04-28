@@ -33,6 +33,10 @@ class User:
         self.db.con.commit()
         self.get_data()
 
+    def log_query(self, query):
+        self.db.cur.execute('INSERT INTO query_log (user_id, query) VALUES (?, ?)', (self.id, query, ))
+        self.db.con.commit()
+
     def register(self):
         self.db.cur.execute('INSERT INTO users (id) VALUES (?)', (self.id, )).fetchall()
         self.db.con.commit()

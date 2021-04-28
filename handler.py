@@ -33,7 +33,7 @@ class AliceHandler():
         }
 
         self.user = User(db, request)
-        print(self.user.stage)
+        self.user.log_query(' '.join(request['request']['nlu']['tokens']))
         if self.user.stage == 'init':
             self.initMessage()
         elif self.user.stage == 'selectCity':
